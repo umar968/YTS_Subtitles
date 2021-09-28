@@ -1,0 +1,20 @@
+easy_admin:
+  site_name: "YTS Subtitles"
+  entities:
+    Movies:
+        class: App\Entity\Movie
+        label: "Movies"
+        list:
+          # fields: [{property: 'id', label: false}, 'Title', {property: 'Year',label: 'Release Year',}, 'Runtime', {property: 'IMDM_Rating', label: 'IMDB Rating'}]
+    # Role:
+    #     class: App\Entity\Role
+    #     label: "Roles"
+    # Subtitle:
+    #     class: App\Entity\Subtitle
+    #     label: "Subtitles"
+    Genre:
+        class: App\Entity\Genre
+        label: "Genre"
+    MovieGenre:
+        class: App\Entity\MovieGenre
+        label: "Movie Genres"
