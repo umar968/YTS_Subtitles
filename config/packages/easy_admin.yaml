@@ -6,15 +6,16 @@ easy_admin:
         label: "Movies"
         list:
           # fields: [{property: 'id', label: false}, 'Title', {property: 'Year',label: 'Release Year',}, 'Runtime', {property: 'IMDM_Rating', label: 'IMDB Rating'}]
-    # Role:
-    #     class: App\Entity\Role
-    #     label: "Roles"
-    # Subtitle:
-    #     class: App\Entity\Subtitle
-    #     label: "Subtitles"
     Genre:
         class: App\Entity\Genre
         label: "Genre"
-    MovieGenre:
-        class: App\Entity\MovieGenre
-        label: "Movie Genres"
+    Actor:
+        class: App\Entity\Actor
+        label: Actors
+    Subtitle:
+        class: App\Entity\Subtitle
+        label: Subtitle
+    Language:
+        class: App\Entity\Language
+        label: Language
+      

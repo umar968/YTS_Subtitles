@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MovieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +53,22 @@ class Movie
      * @ORM\Column(type="string", length=255)
      */
     private $Trailer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Genre::class)
+     */
+    private $Genre;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Actor::class)
+     */
+    private $Actors;
+
+    public function __construct()
+    {
+        $this->Genre = new ArrayCollection();
+        $this->Actors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -137,6 +155,54 @@ class Movie
     public function setTrailer(string $Trailer): self
     {
         $this->Trailer = $Trailer;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenre(): Collection
+    {
+        return $this->Genre;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->Genre->contains($genre)) {
+            $this->Genre[] = $genre;
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        $this->Genre->removeElement($genre);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actor[]
+     */
+    public function getActors(): Collection
+    {
+        return $this->Actors;
+    }
+
+    public function addActor(Actor $actor): self
+    {
+        if (!$this->Actors->contains($actor)) {
+            $this->Actors[] = $actor;
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): self
+    {
+        $this->Actors->removeElement($actor);
 
         return $this;
     }

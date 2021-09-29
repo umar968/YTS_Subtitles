@@ -22,6 +22,11 @@ class Actor
      */
     private $Name;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Role;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class Actor
     public function setName(string $Name): self
     {
         $this->Name = $Name;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->Role;
+    }
+
+    public function setRole(string $Role): self
+    {
+        $this->Role = $Role;
 
         return $this;
     }
