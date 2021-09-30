@@ -64,6 +64,11 @@ class Movie
      */
     private $Actors;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Image;
+
     public function __construct()
     {
         $this->Genre = new ArrayCollection();
@@ -211,5 +216,17 @@ class Movie
     {
 
         return $this->getTitle();
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->Image;
+    }
+
+    public function setImage(string $Image): self
+    {
+        $this->Image = $Image;
+
+        return $this;
     }
 }

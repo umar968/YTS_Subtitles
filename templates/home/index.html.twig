@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YTS Subtitles{% endblock %}
+
+{% block body %}
+<style>
+    
+</style>
+
+{% for Movie in Movies %}
+ {% include "home/movieTile.html.twig" with {'Movie': Movie} %} 
+{% endfor %}
+
+{% endblock %}
