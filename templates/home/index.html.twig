@@ -1,14 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/layout.html.twig' %}
 
-{% block title %}YTS Subtitles{% endblock %}
+{% block title %}YTS Subtitles
+{% endblock %}
 
-{% block body %}
-<style>
-    
-</style>
+{% block MovieList %}
+	<div>
+		{% for Movie in Movies %}
+			{% include "home/movieTile.html.twig" with {'Movie': Movie} %}
+		{% endfor %}
+	</div>
+{% endblock %}
 
-{% for Movie in Movies %}
- {% include "home/movieTile.html.twig" with {'Movie': Movie} %} 
-{% endfor %}
-
+{% block PopularMovies %}
+	<div>
+		{% include "home/moviePop.html.twig" %}
+	</div>
 {% endblock %}

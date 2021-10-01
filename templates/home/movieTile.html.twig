@@ -21,17 +21,28 @@
     </div>
     <div id="DIV_8">
       <div id="DIV_9">
-        <p id="P_10">Entertainment</p>
+        <p id="P_10">
+          {% for Genre in Movie.getGenre().getValues() %} {{ Genre }}{% endfor
+          %}
+        </p>
+
         <span id="SPAN_11"
           >{{ Movie.getYear() }} <small id="SMALL_12">Year</small></span
         >
-        <span id="SPAN_13"
-          >{{ Movie.getRuntime() }} <small id="SMALL_14">Mins</small></span
+        <span id="SPAN_13">
+          {% if Movie.getRuntime() is not null %}
+          {{ Movie.getRuntime() | date('h:i') }}
+          {% endif %} {% if Movie.getRuntime() is null %} N/A {% endif %}
+          <small id="SMALL_14">Mins</small></span
         >
         <span id="SPAN_15"
           >{{ Movie.getIMDMRating() }} <small id="SMALL_16">Imdb</small></span
         >
-        <p id="P_17">N/A</p>
+        <p id="P_17">
+          {% if Movie.getActors is null %} N/A {% endif %} {% if Movie.getActors
+          is not null %} {% for Actor in Movie.getActors().getValues() %}
+          {{ Actor }}, {% endfor %} {% endif %}
+        </p>
         <p id="P_18">
           {{ Movie.getDescription() }}
         </p>
