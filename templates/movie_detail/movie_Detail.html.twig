@@ -1,0 +1,10 @@
+{% extends 'home/layout.html.twig' %}
+
+
+{% block MovieList %}
+	<div>
+
+		{% include "home/movieTile.html.twig" with {'Movie': Movie} %}
+
+	</div>
+{% endblock %}

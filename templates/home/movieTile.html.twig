@@ -1,52 +1,50 @@
 <div id="DIV_1" class="bg-dark">
-  <h1 id="H1_2">
-    <a
-      href="https://ytsubtitles.com/moonbound/tt14534992"
-      title="Moonbound"
-      id="A_3"
-      >{{ Movie.getTitle() }}</a
-    >
-  </h1>
-  <div id="DIV_4">
-    <div id="DIV_5">
-      <a
-        href="https://ytsubtitles.com/mooMoonbound (2022)nbound/tt14534992"
-        title="Moonbound"
-        id="A_6"
-        ><img
-          src="https://ytsubtitles.com/uploads/images/posters/4/moonbound-5174-thumb.jpg"
-          alt="Moonbound Subtitles"
-          id="IMG_7"
-      /></a>
-    </div>
-    <div id="DIV_8">
-      <div id="DIV_9">
-        <p id="P_10">
-          {% for Genre in Movie.getGenre().getValues() %} {{ Genre }}{% endfor
+	<h1 id="H1_2">
+		<a href="{{ path('movie_Detail',{id: Movie.getID()}) }}" title="Moonbound" id="A_3">{{ Movie.getTitle() }}</a>
+	</h1>
+	<div id="DIV_4">
+		<div id="DIV_5">
+			<a href="{{ path('movie_Detail',{id: Movie.getID()}) }}" title="Moonbound" id="A_6"><img src="https://ytsubtitles.com/uploads/images/posters/4/moonbound-5174-thumb.jpg" alt="Moonbound Subtitles" id="IMG_7"/></a>
+		</div>
+		<div id="DIV_8">
+			<div id="DIV_9">
+				<p id="P_10">
+					{% for Genre in Movie.getGenre().getValues() %}
+						{{ Genre }}
+					{% endfor
           %}
-        </p>
+				</p>
 
-        <span id="SPAN_11"
-          >{{ Movie.getYear() }} <small id="SMALL_12">Year</small></span
-        >
-        <span id="SPAN_13">
-          {% if Movie.getRuntime() is not null %}
-          {{ Movie.getRuntime() | date('h:i') }}
-          {% endif %} {% if Movie.getRuntime() is null %} N/A {% endif %}
-          <small id="SMALL_14">Mins</small></span
-        >
-        <span id="SPAN_15"
-          >{{ Movie.getIMDMRating() }} <small id="SMALL_16">Imdb</small></span
-        >
-        <p id="P_17">
-          {% if Movie.getActors is null %} N/A {% endif %} {% if Movie.getActors
-          is not null %} {% for Actor in Movie.getActors().getValues() %}
-          {{ Actor }}, {% endfor %} {% endif %}
-        </p>
-        <p id="P_18">
-          {{ Movie.getDescription() }}
-        </p>
-      </div>
-    </div>
-  </div>
+				<span id="SPAN_11">{{ Movie.getYear() }}
+					<small id="SMALL_12">Year</small>
+				</span>
+				<span id="SPAN_13">
+					{% if Movie.getRuntime() is not null %}
+						{{ Movie.getRuntime() | date('h:i') }}
+					{% endif %}
+					{% if Movie.getRuntime() is null %}
+						N/A
+					{% endif %}
+					<small id="SMALL_14">Mins</small>
+				</span>
+				<span id="SPAN_15">{{ Movie.getIMDMRating() }}
+					<small id="SMALL_16">Imdb</small>
+				</span>
+				<p id="P_17">
+					{% if Movie.getActors is null %}
+						N/A
+					{% endif %}
+					{% if Movie.getActors
+          is not null %}
+						{% for Actor in Movie.getActors().getValues() %}
+							{{ Actor }},
+						{% endfor %}
+					{% endif %}
+				</p>
+				<p id="P_18">
+					{{ Movie.getDescription() }}
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
